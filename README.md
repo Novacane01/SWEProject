@@ -1,2 +1,3 @@
 # SWEProject
-Software Engineering project spring 2019
+Software Engineering Project Spring 2019
+
