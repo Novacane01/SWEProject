@@ -3,7 +3,7 @@ const mongo = require('mongodb').MongoClient
 mongo.connect('mongodb://localhost:27017/test', (err, client) => {
     if (err) {
       console.error(err)
-      return
+      return;
     }
     const db = client.db('test');
     console.log(`Now connected to database \'${db.databaseName}\'`);
