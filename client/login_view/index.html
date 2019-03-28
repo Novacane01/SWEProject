@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <title>Twitter Statistics</title>
+  </head>
+  <body>
+    <h1 class="center">Twitter Statistics Service Website </h1>
+    <h3 class="center">Log In</h3>
+    <form action="/user" target="_blank" method="POST">
+      <div class="center">
+        <label for="username">Username</label>
+        <br>
+        <input type="text" id="username" name="username">
+      </div>
+      <div class="center">
+        <label for="pass">Password (8 characters minimum)</label>
+        <br>
+        <input type="password" id="pass" name="password"
+           minlength="8" required>
+      </div>
+      <div class="center"><input type="submit" value ="Register"></input></div>
+    </form>
+    <div class="center"><h3>Log in via twitter </h3>
+      <button class="button" onclick="authenticate_user(function callback(res){return res})"><img src="resources/TwitterPic.png" style="width: auto; height: 25px"></button>
+      <script src="../server/test.js"></script>
+    </div>
+  </body>
+</html>

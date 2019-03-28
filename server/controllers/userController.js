@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const User = require('../models/userModel').User
 const config = require('../config/config');
 mongoose.Promise = global.Promise;
-mongoose.connect(config.url,{useMongoClient: true});
+mongoose.connect(config.uri, {useMongoClient:true});
 const connection = mongoose.connection;
 
 //Connect to database
@@ -34,7 +34,8 @@ exports.getUser = (req,res)=>{
 
 exports.deleteUser = (req,res)=>{
   User.deleteOne({username:req.params.username}).then((user)=>{
-    res.status(204).send(`${req.params.username} has been removed from database`);
+    console.log(`${req.params.username} removed from database!`);
+    res.status(204).send();
   },(err)=>{
     res.status(404).send(err);
   });
