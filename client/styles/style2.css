@@ -1,0 +1,31 @@
+#searchBar {
+  margin: 15px 10px;
+}
+
+.tableWrapper {
+  max-height: 400px;
+  overflow: auto;
+}
+
+.row{
+    color:#E0FFFF;
+}
+
+.tableWrapper{
+  background-color:#E0FFFF;
+  color:#0000CD;
+}
+
+body{
+  background-color: #00FFFF;
+  font-family:Comic Sans MS, Comic Sans, cursive;
+}
+
+.jumbotron{
+  background-color: #FF4500;
+  color:#00FF00;
+}
+
+.table-hover tbody tr:hover td {
+    background: #00FF00;
+}
