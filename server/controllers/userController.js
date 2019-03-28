@@ -4,6 +4,7 @@ const config = require('../config/config');
 mongoose.Promise = global.Promise;
 mongoose.connect(config.uri, {useMongoClient:true});
 const connection = mongoose.connection;
+const http = require('http');
 
 //Connect to database
 connection.on('error', console.error.bind(console, 'connection error:'));
@@ -27,6 +28,19 @@ exports.getUser = (req,res)=>{
       res.status(200).send(user);
     else
       res.status(404).send(`User ${req.params.username} does not exit`);
+    
+  },(err)=>{
+    res.status(404).send(err);
+  });
+}
+
+exports.authUser = (req,res)=>{
+  User.findOne({username: req.params.username}).then((user)=>{
+    if(user)
+      res.redirect(200,'https://google.com');
+    else
+      res.redirect(200,'back');
+    
   },(err)=>{
     res.status(404).send(err);
   });
