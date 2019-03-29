@@ -1,6 +1,6 @@
 # osx
 .DS_Store
-server/config/config.js
+server/config/*
 node_modules
 package*
 
