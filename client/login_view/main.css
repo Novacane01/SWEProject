@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*#searchBar {
   margin: 15px 10px;
 }
@@ -54,3 +55,57 @@ body{
   border-style: none;
   text-align: center;
 }
+=======
+
+/*#searchBar {
+  margin: 15px 10px;
+}
+
+.tableWrapper {
+  max-height: 400px;
+  overflow: auto;
+}
+
+.indented{
+  padding-left: 50pt;
+}
+
+#formInput{
+  color:#FF4500:
+  width: 75%;
+}
+
+.row{
+    color:#00FF00;
+}
+
+.tableWrapper{
+  background-color:#FF4500;
+  color:#0000CD;
+}
+
+body{
+  background-color: #0000CD;
+  font-family:Comic Sans MS, Comic Sans, cursive;
+}
+
+.jumbotron{
+  background-color: #FF4500;
+  color:#00FF00;
+}
+
+.table-hover tbody tr:hover td {
+    background: #00FF00;
+}*/
+.center{
+  text-align: center;
+}
+.button{
+  background-color: #FFFFFF;
+  border-style: none;
+  text-align: center;
+}
+.searchBar{
+  text-align: center;
+}
+>>>>>>> 569fea7788dd15eb6aed92ea5bce53162c527641

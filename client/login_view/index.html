@@ -2,12 +2,12 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="main.css">
     <title>Twitter Statistics</title>
   </head>
   <body>
     <h1 class="center">Twitter Statistics Service Website </h1>
-    <form name="Log In" action="/user" target="_self" method="POST">
+    <form action="/user/register" target="_self" method="POST">
       <div class="center">
         <label for="fName">First Name</label>
         <br>
@@ -18,7 +18,7 @@
         <br>
         <input type="text" id="lName" name="lName">
       </div>
-      <form action="/user" target="_self" method="POST">
+      <form action="/user/login" target="_self" method="POST">
       <div class="center">
         <label for="username">Username</label>
         <br>
@@ -27,7 +27,7 @@
       <div class="center">
         <label for="pass">Password (8 characters minimum)</label>
         <br>
-        <input type="password" encrpyt="sha1" id="pass" name="password" minlength="8" required>
+        <input type="password" id="pass" name="password" minlength="6" required>
       </div>
       <div class="center"><input type="submit" value="Log In"></input>
       <input type="submit" class = "Register" value ="Register"></input></div>
