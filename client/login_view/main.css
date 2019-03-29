@@ -38,3 +38,19 @@ body{
 .table-hover tbody tr:hover td {
     background: #00FF00;
 }*/
+.center{
+  text-align: center;
+}
+.button{
+  background-color: #FFFFFF;
+  border-style: none;
+  text-align: center;
+}
+.searchBar{
+  text-align: center;
+}
+.Register{
+  background-color: #FFFFFF;
+  border-style: none;
+  text-align: center;
+}
