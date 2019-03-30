@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const config = require('../config/config');
+mongoose.Promise = global.Promise;
+mongoose.user_conn =  mongoose.createConnection(config.db.userDB, {useMongoClient:true});
 
 var userSchema = new Schema({
   username:{
@@ -15,4 +18,4 @@ var userSchema = new Schema({
   }
 });
 
-module.exports.User = mongoose.model('User',userSchema);
+module.exports.User = mongoose.user_conn.model('User',userSchema);

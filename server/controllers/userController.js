@@ -1,15 +1,10 @@
-const mongoose = require('mongoose');
 const User = require('../models/userModel').User
-const config = require('../config/config');
-mongoose.Promise = global.Promise;
-mongoose.connect(config.uri, {useMongoClient:true});
-const connection = mongoose.connection;
 
 //Connect to database
-connection.on('error', console.error.bind(console, 'connection error:'));
-connection.once('open', function() {
-  console.log(`Connected to database \'${connection.db.databaseName}\'!`);
-});
+// connection.on('error', console.error.bind(console, 'connection error:'));
+// connection.once('open', function() {
+//   console.log(`Connected to database \'${connection.db.databaseName}\'!`);
+// });
 
 //Controller Functions
 exports.addUser = (req,res)=>{
