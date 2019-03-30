@@ -4,7 +4,7 @@ const config = require('../config/config');
 mongoose.Promise = global.Promise;
 mongoose.connect(config.uri, {useMongoClient:true});
 const connection = mongoose.connection;
-const http = require('http');
+const path = require('path');
 
 //Connect to database
 connection.on('error', console.error.bind(console, 'connection error:'));
@@ -16,7 +16,7 @@ connection.once('open', function() {
 exports.addUser = (req,res)=>{
   User.create(req.body).then((user)=>{
     console.log(`${req.body.username} added to database!`);
-    res.status(201).send(user);
+    res.sendFile(path.resolve('Views/homepage.html'));
   },(err)=>{
     res.status(404).send(err);
   });
