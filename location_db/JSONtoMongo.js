@@ -8,19 +8,10 @@ var fs = require('fs'),
     Schema = mongoose.Schema, 
     Location = require('./LocationsSchema.js'), 
     config = require('./config'),
-    //locations = require('./locations.json'),
-    //locationFile = require('./geo.csv'),
     csv = require('fast-csv');
-    //data = locations.entries;
 
 /* Connect to your database */
 mongoose.connect(config.db.uri);
-/* 
-  Instantiate a mongoose model for each listing object in the JSON file, 
-  and then save it to your Mongo database 
- */
-
-
 
 var locations=[];
 var counter=0;
@@ -30,7 +21,6 @@ var totalCounter=0;
 
 csv
  .fromPath("geoplanet_places_7.10.0.csv", {headers: true})
- //.fromPath("geo.csv", {headers: true})
  .on("data", function(data){
     if(counter==10000){
       Location.create(locations, function(err, documents){
