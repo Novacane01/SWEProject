@@ -1,4 +1,4 @@
-/*#searchBar {
+#searchBar {
   margin: 15px 10px;
 }
 
@@ -12,7 +12,7 @@
 }
 
 #formInput{
-  color:#FF4500:
+  color:#FF4500;
   width: 75%;
 }
 
@@ -37,4 +37,4 @@ body{
 
 .table-hover tbody tr:hover td {
     background: #00FF00;
-}*/
+}
