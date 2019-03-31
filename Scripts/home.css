@@ -1,4 +1,6 @@
-/*#searchBar {
+
+#searchBar {
+
   margin: 15px 10px;
 }
 
@@ -12,7 +14,9 @@
 }
 
 #formInput{
-  color:#FF4500:
+
+  color:#FF4500;
+
   width: 75%;
 }
 
@@ -37,7 +41,8 @@ body{
 
 .table-hover tbody tr:hover td {
     background: #00FF00;
-}*/
+
+}
 .center{
   text-align: center;
 }
@@ -48,7 +53,9 @@ body{
 }
 .searchBar{
   text-align: center;
+
 }
+<<<<<<< HEAD:client/styles/main.css
 <<<<<<< HEAD
 =======
 .Register{
@@ -57,3 +64,5 @@ body{
   text-align: center;
 }
 >>>>>>> d84ab76284241356432cf1fb28f30d516e39f8e9
+=======
+>>>>>>> 4734ed13bed421bf353cf1e6146ff3bd3230cfa4:Scripts/home.css
