@@ -7,12 +7,19 @@ mongoose.loc_conn = mongoose.createConnection(config.db.locationDB,{useMongoClie
 
 /* Create your schema */
 var locationSchema = new Schema({
-  WOE_ID: Number,
-  // ISO: String,
+  // WOE_ID: Number,
+  // // ISO: String,
+  // Name: String,
+  // //Language: String,
+  // PlaceType: String,
+  // Parent_ID: Number
+
   Name: String,
-  //Language: String,
   PlaceType: String,
-  Parent_ID: Number
+  Parent_ID: Number,
+  Country: String,
+  WOE_ID: Number,
+  CountryCode: String  
 });
 
 /* Use your schema to instantiate a Mongoose model */
