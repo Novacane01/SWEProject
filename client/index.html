@@ -2,13 +2,23 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href=".css">
     <title>Twitter Statistics</title>
   </head>
   <body>
     <h1 class="center">Twitter Statistics Service Website </h1>
-    <h3 class="center">Log In</h3>
-    <form action="..server/routes/tbd" target="_blank" method="POST">
+    <form action="/user/register" target="_self" method="POST">
+      <div class="center">
+        <label for="fName">First Name</label>
+        <br>
+        <input type="text" id="fName" name="fName">
+      </div>
+      <div class="center">
+        <label for="lName">Last Name</label>
+        <br>
+        <input type="text" id="lName" name="lName">
+      </div>
+      <form action="/user/login" target="_self" method="POST">
       <div class="center">
         <label for="username">Username</label>
         <br>
@@ -17,14 +27,16 @@
       <div class="center">
         <label for="pass">Password (8 characters minimum)</label>
         <br>
-        <input type="password" id="pass" name="password"
-           minlength="8" required>
+        <input type="password" id="pass" name="password" minlength="6" required>
       </div>
-      <div class="center"><input type="submit" value ="Register"></input></div>
+      <div class="center"><input type="submit" value="Log In"></input>
+      <input type="submit" class = "Register" value ="Register"></input></div>
     </form>
+    <!--
     <div class="center"><h3>Log in via twitter </h3>
       <button class="button" onclick="authenticate_user(function callback(res){return res})"><img src="resources/TwitterPic.png" style="width: auto; height: 25px"></button>
       <script src="../server/test.js"></script>
     </div>
+  -->
   </body>
 </html>

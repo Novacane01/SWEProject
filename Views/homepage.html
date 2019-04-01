@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/home.css">
+    </head>
+    <center>
+    <h1>TweetData Website</h1>
+    <div align="right">
+      <font color="red">
+          <button type="button" ng-click="redirect()">Log Out</button>
+      </font>
+    </div>
+    <p></p>
+    <p></p>
+    <form class="example" action=/twitter/trendingAt target="_self" method="POST">
+        <input type="text" placeholder="Search Tweets" name="search" ng-model="trend">
+        <br>
+        <input type="submit" class = "Register" value ="Sign Up"></input>
+      </form>
+      <form>
+      <input type="radio" name="mode" value=1 checked>recent
+      <input type="radio" name="mode" value=2>popular
+      <input type="radio" name="mode" value=3>mixed
+      <select>
+        <option value="country">search by country</option>
+        <option value="trend">search by trend</option>
+      </select>
+      <input type="submit" class = "Register" value ="Search"></input>
+    </form>
+    <p></p>
+    <div class="row" ng-controller="TwitterController">
+      <div class="col-md-6">
+        <div class="tableWrapper">
+          <p></p>
+          <table class="table table-striped table-hover">
+            <tr>
+              <th>User</th>
+              <th>Tweet</th>
+              <th>Date of Post</th>
+              <th>View Tweet on Twitter</th>
+            </tr>
+            <tr ng-repeat="tweet in tweets">
+              <td>{{tweet.user.name}}</td>
+              <td>{{tweet.text}}</td>
+              <td>{{tweet.created_at}}</td>
+              <td onclick="window.location='{{tweet.entities.urls.url}}'">Click</td>
+            </tr>
+          </table>
+        </div>
+    </div>
+    </center>
+  </div>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      #map {
+        height: 60%;
+        width: 40%;
+        margin-right:0px;
+        margin-left:800px;
+      }
+      html, body {
+        height: 100%;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 30, lng: 0},
+          zoom: 1.5
+        });
+        map.addListener('click', function(e) {
+            placeMarkerAndPanTo(e.latLng, map);
+        });
+      }
+
+    function placeMarkerAndPanTo(latLng, map) {
+      var marker = new google.maps.Marker({
+        position: latLng,
+        map: map
+      });
+      map.panTo(latLng);
+    }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDR5PXfZUEa2RPcJ63qTRg3G79tby08J6k&callback=initMap"
+    async defer></script>
+  </body>
+</html>

@@ -60,18 +60,18 @@ body{
   border-radius: 10px;
 }
 .LogIn{
-  background-color: #FFFFFF;
+  background-color: #0084b4;
   border-style: none;
   text-align: center;
   font-weight: bold;
 }
-.LogIn:hover{
+/*.LogIn:hover{
   background-color: #EEEEEE;
-}
+}*/
 body{
   background-color: #0084b4;
   text-align: center;
-  font-family: "Comic Sans MS", cursive, sans-serif
+  /*font-family: "Comic Sans MS", cursive, sans-serif*/
 }
 =======
 
