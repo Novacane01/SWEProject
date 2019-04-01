@@ -23,7 +23,7 @@ findCountryByName = (name,placeType,callback)=>{
 exports.getTrendsAt = (req,res)=>{
   findCountryByName(req.query.name,req.query.placeType,(err,woe_id)=>{
     if(err) return res.status(404).send(err.message);
-    client.get('https://api.twitter.com/1.1/trends/place.json',{id:woe_id},(err,response,body)=>{
+    client.get('https://api.twitter.com/1.1/trends/place.json',{id:woe_id,exclude:'hashtags'},(err,response,body)=>{
       console.log(JSON.parse(body.body)[0].trends);
       return res.status(200).send(JSON.parse(body.body)[0].trends);
     });

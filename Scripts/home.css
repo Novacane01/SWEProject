@@ -1,13 +1,21 @@
 *{
   font-family: 'Montserrat', sans-serif;
 }
-#searchBar {
-  margin: 15px 10px;
+.navbar{
+  padding:20px;
+  background-color: rgb(145, 205, 255);
 }
-body{
+
+
+#search {
+width: 100%;
+}
+
+.TrendSearch{
   /* background-color: rgb(25, 30, 73); */
   margin: 25px;
 }
+
 .tableWrapper {
   max-height: 400px;
   overflow: auto;
@@ -15,13 +23,28 @@ body{
 .md-form{
   width: 50%;
 }
-.row{
-    /* color:#E0FFFF; */
+#filterPlace{
+    width: 20%;
+}
+#Title{
+  margin-bottom: 1em;
 }
 
 .tableWrapper{
   /* color:#0000CD; */
-  
+  /* margin: 0% auto; */
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: content-box;
+  padding-right: 17px;
+  overflow-y: scroll;
+}
+.btn{
+  margin-right:25px;
+}
+table{
+  margin: 0% auto;
 }
 
 .jumbotron{

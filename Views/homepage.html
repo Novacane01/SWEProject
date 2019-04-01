@@ -8,34 +8,44 @@
       <title>Twitter Statistics</title>
     </head>
     <body ng-app="twitterApp" ng-controller="TwitterController">
-      <h1>Trending</h1>
-      <p></p>
-      <p></p>
+      <nav class="navbar navbar-expand-lg">
+        <img class="navbar-brand" src="/trendi.png" style="width:180px;height:70px;"></img>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link"> Whats Trending? </a>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-link"> Statistics </a>
+          </li>
+        </ul>
+        <!-- <h1>Whats Trending?</h1>
+        <h1>Statistics</h1> -->
+        </nav>
       <div class="TrendSearch" ng-model="trending">
-          <!-- <input type="text" placeholder="Search Tweets" name="search" ng-model="trending"> -->
+      <h1 id="Title">Trending</h1>
           <div class="md-form active-cyan active-cyan-2 mb-3">
-              <input class="form-control" type="text" placeholder="Search by Location" aria-label="Search" ng-model="location">
-          </div>
-          <button class="btn btn-primary" type="button" ng-click="updateTrends(location)">Search</button>
-          <input type="radio" name="mode" value=1 checked>recent
+              <input class="form-control"  id="search" type="text" placeholder="Search by Location" aria-label="Search" ng-model="location">
+            </div>
+            <button class="btn btn-primary" type="button" ng-click="updateTrends(location,placeType)">Search</button>
+          <!-- <input type="radio" name="mode" value=1 checked>recent
           <input type="radio" name="mode" value=2>popular
-          <input type="radio" name="mode" value=3>mixed
-        <select>
-          <option value="country">search by country</option>
-          <option value="trend">search by trend</option>
+          <input type="radio" name="mode" value=3>mixed -->
+        <select class="form-control-sm" id="filterPlace" ng-model="placeType">
+          <option value="Country">Search by Country</option>
+          <option value="Town">Search by City</option>
+          <!-- <option ng-model="placeType" value="trend">search by trend</option> -->
         </select>
         </div>
       <p></p>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="tableWrapper">
+        <div class="tableWrapper">
+          <div class="col-md-6">
             <p></p>
             <table class="table table-hover">
               <tr>
                 <th>User</th>
                 <th>Tweet</th>
-                <th>Date of Post</th>
-                <th>View Tweet on Twitter</th>
+                <!-- <th>Date of Post</th>
+                <th>View Tweet on Twitter</th> -->
               </tr>
               <tr ng-repeat="trend in trending">
                 <td>{{trend.name}}</td>
@@ -44,11 +54,10 @@
                 <!-- <td onclick="window.location='{{tweet.entities.urls.url}}'">Click</td> -->
               </tr>
             </table>
-          </div>
       </div>
     </div>
     </body>
-    <head>
+    <!-- <head>
       <meta name="viewport" content="initial-scale=1.0">
       <meta charset="utf-8">
       <style>
@@ -85,7 +94,7 @@
       });
       map.panTo(latLng);
     }
-    </script>
+    </script> -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDR5PXfZUEa2RPcJ63qTRg3G79tby08J6k&callback=initMap" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="/app.js"></script>
