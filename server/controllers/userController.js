@@ -1,18 +1,22 @@
 const User = require('../models/userModel').User
-
-//Connect to database
-// connection.on('error', console.error.bind(console, 'connection error:'));
-// connection.once('open', function() {
-//   console.log(`Connected to database \'${connection.db.databaseName}\'!`);
-// });
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 //Controller Functions
 exports.addUser = (req,res)=>{
-  User.create(req.body).then((user)=>{
-    console.log(user);
-    res.redirect('/home');
-  },(err)=>{
-    res.redirect('back');
+  // console.log('add');
+  bcrypt.hash(req.body.password, saltRounds,(err,hash)=>{
+    if(err) {
+      console.log(err);
+      return res.redirect('');
+    }
+    User.create({username:req.body.username,password:hash}).then((user)=>{
+      console.log(user);
+      res.redirect('/home');
+    },(err)=>{
+      console.log(err);
+      res.redirect('/');
+    });
   });
 }
 
@@ -32,12 +36,26 @@ exports.getUser = (req,res)=>{
 }
 
 exports.authUser = (req,res)=>{
-  User.findOne({username: req.params.username}).then((user)=>{
+  User.findOne({username: req.body.username}).then((user)=>{
     console.log(user);
-    res.redirect('/home');    
+    if(user) {
+      bcrypt.compare(req.body.password,user.password, (err, good)=> {
+        if(err){
+          console.log("shouldnt be here");
+          console.log(err);
+          return res.redirect('/');
+        }
+        if(good){
+          return res.redirect('/home');
+        }
+      });
+    }
+    else{
+      res.redirect('/');    
+    }
   },(err)=>{
     console.log(err);
-    res.redirect('back');
+    res.redirect('/');
   });
 }
 
