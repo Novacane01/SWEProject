@@ -8,9 +8,15 @@ angular.module('trends').controller('TwitterController',['$scope', 'Trends',
                 console.log(response);
                 $scope.trending = [];
                 var trends = response.data;
-                trends.forEach(element => {
-                    $scope.trending.push(element);
-                });
+                if(trends != null){
+                    console.log(trends);
+                    trends.forEach(element => {
+                        $scope.trending.push(element);
+                    });
+                }
+                else{
+                    // $window.alert("No trends available");
+                }
             },(err)=>{
                 console.log('Unable to retrieve trends:',err);
             });
