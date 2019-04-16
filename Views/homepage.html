@@ -1,45 +1,39 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
       <link rel="stylesheet" href="/home.css">
+      <title>Twitter Statistics</title>
     </head>
-    <center>
-    <h1>TweetData Website</h1>
-    <div align="right">
-      <font color="red">
-          <button type="button" ng-click="redirect()">Log Out</button>
-      </font>
-    </div>
-    <p></p>
-    <p></p>
-    <form class="example" action="action_page.php">
-        <input type="text" placeholder="Search a Trend" name="search" ng-model="trend">
-        <button type="submit" ng-click="search(trend)">Enter</button>
-    </form>
-    <div class="btn-group">
-      <button type="button" ng-click="mode=1">recent</button>
-      <button type="button" ng-click="mode=2">popular</button>
-      <button type="button" ng-click="mode=3">mixed</button>
-    </div>
-    <p></p>
-    <div class="row" ng-controller="TwitterController">
-      <div class="col-md-6">
-        <div class="tableWrapper">
-          <p></p>
-          <table class="table table-striped table-hover">
-            <tr>
-              <th>User</th>
-              <th>Tweet</th>
-              <th>Date of Post</th>
-            </tr>
-            <tr ng-repeat="tweet in tweets">
-              <td>{{tweet.user.name}}</td>
-              <td>{{tweet.text}}</td>
-              <td>{{tweet.created_at}}</td>
-            </tr>
-          </table>
+    <body ng-app="twitterApp" ng-controller="TwitterController">
+      <nav class="navbar navbar-expand-lg">
+        <img class="navbar-brand" src="/trendi.png" style="width:180px;height:70px;"></img>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+              <a class="nav-link" href="/stats"> Statistics </a>
+          </li>
+        </ul>
+        <!-- <h1>Whats Trending?</h1>
+        <h1>Statistics</h1> -->
+        </nav>
+      <div class="TrendSearch" ng-model="trending">
+      <h1 id="Title">Trending</h1>
+          <div class="md-form active-cyan active-cyan-2 mb-3">
+              <input class="form-control"  id="search" type="text" placeholder="Search by Location" aria-label="Search" ng-model="location">
+            </div>
+            <button class="btn btn-primary" type="button" ng-click="updateTrends(location,placeType)">Search</button>
+          <!-- <input type="radio" name="mode" value=1 checked>recent
+          <input type="radio" name="mode" value=2>popular
+          <input type="radio" name="mode" value=3>mixed -->
+        <select class="form-control-sm" id="filterPlace" ng-model="placeType">
+          <option value="Country">Search by Country</option>
+          <option value="Town">Search by City</option>
+          <!-- <option ng-model="placeType" value="trend">search by trend</option> -->
+        </select>
         </div>
+<<<<<<< HEAD
     </div>
     </center>
   </div>
@@ -62,6 +56,46 @@
       }
     </style>
   </head>
+=======
+      <p></p>
+        <div class="tableWrapper">
+          <div class="col-md-6">
+            <p></p>
+            <table class="table table-hover">
+              <tr>
+                <th>Trend</th>
+                <th>Link</th>
+                <th>Volume</th>
+                <!-- <th>Date of Post</th>
+                <th>View Tweet on Twitter</th> -->
+              </tr>
+              <tr ng-if="trend.tweet_volume" ng-repeat="trend in trending">
+                <td>{{trend.name}}</td>
+                <td><a href={{trend.url}}>{{trend.url}}</a></td>
+                <td>{{trend.tweet_volume}}</td>
+                <!-- <td onclick="window.location='{{tweet.entities.urls.url}}'">Click</td> -->
+              </tr>
+            </table>
+      </div>
+    </div>
+    </body>
+    <!-- <head>
+      <meta name="viewport" content="initial-scale=1.0">
+      <meta charset="utf-8">
+      <style>
+        #map {
+          height: 60%;
+          width: 40%;
+          margin-right:0px;
+          margin-left:800px;
+        }
+        html, body {
+          height: 100%;
+          padding: 0;
+        }
+      </style>
+    </head>
+>>>>>>> backend
   <body>
     <div id="map"></div>
     <script>
@@ -83,8 +117,17 @@
       });
       map.panTo(latLng);
     }
+<<<<<<< HEAD
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDR5PXfZUEa2RPcJ63qTRg3G79tby08J6k&callback=initMap"
     async defer></script>
+=======
+    </script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDR5PXfZUEa2RPcJ63qTRg3G79tby08J6k&callback=initMap" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="/app.js"></script>
+    <script src="/trendingFactory.js"></script>
+    <script src="/twitterController.js"></script>
+>>>>>>> backend
   </body>
 </html>
