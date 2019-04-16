@@ -16,6 +16,9 @@ app.use('/user',userRoute);
 app.use('/home',(req,res)=>{
   res.sendFile(path.resolve('Views/homepage.html'));
 });
+app.use('/stats',(req,res)=>{
+  res.sendFile(path.resolve('Views/statspage.html'));
+});
 app.use('/*',(req,res)=>{
   res.sendFile(path.resolve('Views/loginpage.html'));
 })
