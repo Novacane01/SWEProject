@@ -1,6 +1,9 @@
 angular.module('trends').controller('TwitterController',['$scope', 'Trends',
     function($scope,Trends){
         $scope.searchName = null;
+        $scope.locations = Trends.getLocations().then((response)=>{
+            console.log(response);
+        });
         $scope.placeType = 'Country';
         $scope.updateTrends = (location,placeType)=>{
             console.log(placeType);

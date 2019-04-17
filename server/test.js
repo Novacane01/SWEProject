@@ -15,6 +15,6 @@ const client = new Twitter({
     access_token_secret: 'gyAkU1BusRKTW4BpqRHxkj6jJnVdZPlbaSdKoDjRmZ90z'
 });
 
-client.get('https://api.twitter.com/1.1/search/tweets.json',{q:"#nasa",count:2},(err,res,body)=>{
+client.get('https://api.twitter.com/1.1/search/tweets.json',{q:"nasa",count:2},(err,res,body)=>{
     console.log( body.body);
 });
