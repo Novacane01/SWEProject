@@ -35,6 +35,7 @@ exports.getTrendsAt = (req,res)=>{
   });
 
   exports.getTrend = (req,res)=>{
-    
+    Twitter.call('https://api.twitter.com/1.1/search/tweets.json',{q:"nasa"});
   }
 }
+
