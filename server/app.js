@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const config = require('./config/config');
 const userRoute = require('./routes/userRoute');
 const twitterRoute = require('./routes/twitterRoute');
+const locationRoute = require('./routes/locationRoute');
 const path = require ('path');
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(express.static('Views'));
 app.use(express.static('Scripts'));
 app.use(express.static('Resources'));
 app.use('/twitter',twitterRoute);
+app.use('/location',locationRoute);
 app.use('/user',userRoute);
 app.use('/home',(req,res)=>{
   res.sendFile(path.resolve('Views/homepage.html'));

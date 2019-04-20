@@ -2,32 +2,35 @@
   font-family: 'Montserrat', sans-serif;
 }
 .navbar{
-  padding:20px;
+  /* padding:20px; */
   background-color: rgb(145, 205, 255);
 }
 
 
 #search {
-width: 100%;
+width: 50%;
+margin-left: 25%;
 }
 
 .TrendSearch{
   /* background-color: rgb(25, 30, 73); */
-  margin: 25px;
+  /* margin: 25px; */
 }
 
 .tableWrapper {
   max-height: 400px;
   overflow: auto;
+  margin-left: 25%;
 }
 .md-form{
-  width: 50%;
+  /* width: 50%; */
 }
 #filterPlace{
     width: 20%;
 }
 #Title{
-  margin-bottom: 1em;
+  margin-bottom: 3%;
+  margin-top: 3%;
 }
 
 .tableWrapper{

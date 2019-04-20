@@ -1,6 +1,6 @@
 /* Fill out these functions using Mongoose queries*/
 const Twitter = require('twitter')
-const Location = require('../models/locationModel');
+const locations = require('../controllers/locationController').locations;
 const client = new Twitter({
     consumer_key: 'grRAruJkJSz0pH8M8BVnAgS6J',
     consumer_secret: '7K226QKFx0JHTh57qeyZRi5mZYjH7Pr3g2NWWSppunlmRGkx8F',
@@ -9,15 +9,20 @@ const client = new Twitter({
 });
 
 findCountryByName = (name,placeType,callback)=>{
-   Location.findOne({Name: new RegExp(`\\b${name}\\b`,'i'), PlaceType:placeType}).then((location)=>{
-     console.log(location);
-     if(location == null){
-       return callback(new Error('Location not found'));
-     }
-    callback(null,location['WOE_ID'].toString());
-   }),(err)=>{
-      if(err) callback(err);
-   }
+  //  Location.findOne({Name: new RegExp(`\\b${name}\\b`,'i'), PlaceType:placeType}).then((location)=>{
+  //    console.log(location);
+  //    if(location == null){
+  //      return callback(new Error('Location not found'));
+  //    }
+  //   callback(null,location['WOE_ID'].toString());
+  //  }),(err)=>{
+  //     if(err) callback(err);
+  //  }
+  for(i = 0;i<Object(locations).length;i++){
+    if(locations[i].name.toLowerCase()==name.toLowerCase() && locations[i].placeType.name.toLowerCase() == placeType.toLowerCase()){
+      callback(null, locations[i].woeid);
+    }
+  }
 };
 
 exports.getTrendsAt = (req,res)=>{
