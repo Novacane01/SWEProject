@@ -57,10 +57,7 @@
         <img class="navbar-brand" src="/trendi.png" style="width:180px;height:70px;"></img>
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link"> Whats Trending? </a>
-          </li>
-          <li class="nav-item active">
-              <a class="nav-link"> Statistics </a>
+              <a class="nav-link" href="/stats"> Statistics </a>
           </li>
         </ul>
         <!-- <h1>Whats Trending?</h1>
@@ -88,15 +85,16 @@
             <p></p>
             <table class="table table-hover">
               <tr>
-                <th>User</th>
-                <th>Tweet</th>
+                <th>Trend</th>
+                <th>Link</th>
+                <th>Volume</th>
                 <!-- <th>Date of Post</th>
                 <th>View Tweet on Twitter</th> -->
               </tr>
-              <tr ng-repeat="trend in trending">
+              <tr ng-if="trend.tweet_volume" ng-repeat="trend in trending">
                 <td>{{trend.name}}</td>
                 <td><a href={{trend.url}}>{{trend.url}}</a></td>
-                <td>{{tweet.tweet_volume}}</td>
+                <td>{{trend.tweet_volume}}</td>
                 <!-- <td onclick="window.location='{{tweet.entities.urls.url}}'">Click</td> -->
               </tr>
             </table>

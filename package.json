@@ -6,7 +6,11 @@
   "author": "Medhir Bhargava",
   "license": "MIT",
   "dependencies": {
+<<<<<<< HEAD
     "bcrypt": "^3.0.5",
+=======
+    "bcrypt": "^3.0.6",
+>>>>>>> 6b7f39590667250268013308ad7b1f42d185750a
     "body-parser": "^1.18.3",
     "crypto": "^1.0.1",
     "express": "^4.16.4",
