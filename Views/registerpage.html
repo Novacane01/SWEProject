@@ -13,7 +13,7 @@
     <div class="container">
       <div class="login">
         <form action="/user/login" target="_self" method="POST">
-          <!-- <div class="form-group">
+          <div class="form-group">
             <label for="fName">First Name</label>
             <br>
             <input class="form-control" type="text" id="fName" name="fName" placeholder="i.e. Jon" required>
@@ -22,7 +22,7 @@
             <label for="lName">Last Name</label>
             <br>
             <input class="form-control" type="text" id="lName" name="lName" placeholder="i.e. Snow" required>
-          </div> -->
+          </div>
           <div class="form-group">
             <label for="username">Username</label>
             <br>
@@ -31,12 +31,16 @@
           <div class="form-group">
             <label for="pass">Password</label>
             <br>
-            <input class="form-control" type="password" id="pass" name="password" minlength="6" placeholder="(8 characters minimum)" required>
+            <input class="form-control" type="password" id="pass" name="password" minlength="6" placeholder="(6 characters minimum)" required>
+          </div>
+          <div class="form-group">
+            <label for="pass">Verify Password</label>
+            <br>
+            <input class="form-control" type="password" id="pass" name="password" minlength="6" placeholder="(6 characters minimum)" required>
           </div>
           <div class="center">
-            <input class="btn btn-outline-light" type="submit" value="Log In" ></input>
-            <p>Don't have an account <a href="registerpage.html">Register Here</a></p>
-          </div>
+          <!--  <input class="btn btn-outline-light" type="submit" value="Log In" ></input>-->
+            <input class="btn btn-outline-light" type="submit" class = "Register" value ="Register" formaction="/user/register"></input></div>
         </form>
       </div>
     </div>
