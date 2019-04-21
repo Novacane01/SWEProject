@@ -12,9 +12,8 @@ width: 50%;
 margin-left: 25%;
 }
 
-.TrendSearch{
-  /* background-color: rgb(25, 30, 73); */
-  /* margin: 25px; */
+.searchDrop{
+  width: 50%;
 }
 
 .tableWrapper {

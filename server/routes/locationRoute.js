@@ -1,8 +1,8 @@
-const router = require('express').Router(),
-    location = require('../controllers/locationController');
+const router = require('express').Router();
+const locations = require('../controllers/locationController');
 
 router.get('/',(req,res)=>{
-    res.json(location.locations);
+    res.json(locations);
 });
 
 module.exports = router;

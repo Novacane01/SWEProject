@@ -28,14 +28,10 @@ body {
   background-color: rgb(0, 63, 179);
 }
 
-.login{
+.register{
   margin: 0 auto;
-  padding-top: 20%;
+  padding-top: 10%;
   width: 55%;
-}
-
-#login-button{
-  padding-bottom: 5%;
 }
 
 #TT{

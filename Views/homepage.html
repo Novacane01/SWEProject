@@ -19,11 +19,14 @@
         <h1>Statistics</h1> -->
         </nav>
       <div class="TrendSearch text-center" ng-model="trending">
-      <h1 id="Title">Trending</h1>
-          <div class="md-form active-cyan active-cyan-2 mb-3">
-              <input class="form-control"  id="search" type="text" placeholder="Search by Location or Trend i.e. #nasa, Canada" aria-label="Search" ng-model="location">
-            </div>
-            <button class="btn btn-primary" type="button" ng-click="updateTrends(location,placeType)">Search</button>
+        <h1 id="Title">Trending</h1>
+        <div class="md-form active-cyan active-cyan-2 mb-3 filterSearch" ng-model = "options">
+          <datalist id="searchDrop">
+            <option ng-if = "option.placeType.name == placeType" value="{{option.name}}" ng-repeat="option in options track by $index">{{option.name}}</option>
+          </datalist>
+          <input class="form-control"  id="search" type="text" list="searchDrop" placeholder="Search by Location or Trend i.e. #nasa, Canada" aria-label="Search" ng-model="location">
+        </div>
+        <button class="btn btn-primary" type="button" ng-click="updateTrends(location,placeType)">Search</button>
           <!-- <input type="radio" name="mode" value=1 checked>recent
           <input type="radio" name="mode" value=2>popular
           <input type="radio" name="mode" value=3>mixed -->
@@ -32,7 +35,7 @@
           <option value="Town">Search by City</option>
           <!-- <option ng-model="placeType" value="trend">search by trend</option> -->
         </select>
-        </div>
+      </div>
       <p></p>
         <div class="tableWrapper">
           <div class="col-md-6">
@@ -55,44 +58,6 @@
       </div>
     </div>
     </body>
-    <!-- <head>
-      <meta name="viewport" content="initial-scale=1.0">
-      <meta charset="utf-8">
-      <style>
-        #map {
-          height: 60%;
-          width: 40%;
-          margin-right:0px;
-          margin-left:800px;
-        }
-        html, body {
-          height: 100%;
-          padding: 0;
-        }
-      </style>
-    </head>
-  <body>
-    <div id="map"></div>
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 30, lng: 0},
-          zoom: 1.5
-        });
-        map.addListener('click', function(e) {
-            placeMarkerAndPanTo(e.latLng, map);
-        });
-      }
-
-    function placeMarkerAndPanTo(latLng, map) {
-      var marker = new google.maps.Marker({
-        position: latLng,
-        map: map
-      });
-      map.panTo(latLng);
-    }
-    </script> -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDR5PXfZUEa2RPcJ63qTRg3G79tby08J6k&callback=initMap" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="/app.js"></script>

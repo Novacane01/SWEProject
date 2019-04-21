@@ -13,8 +13,11 @@ app.use(express.static('Views'));
 app.use(express.static('Scripts'));
 app.use(express.static('Resources'));
 app.use('/twitter',twitterRoute);
-app.use('/location',locationRoute);
+app.use('/locations',locationRoute);
 app.use('/user',userRoute);
+app.use('/register',(req,res)=>{
+  res.sendFile(path.resolve('Views/registerpage.html'));
+})
 app.use('/home',(req,res)=>{
   res.sendFile(path.resolve('Views/homepage.html'));
 });

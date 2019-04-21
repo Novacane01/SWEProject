@@ -4,7 +4,7 @@ const path = require('path');
 var contents = fs.readFileSync(path.resolve('./Resources/locations.json'));
 // Define to JSON type
 var jsonContent = JSON.parse(contents);
-
-module.exports.locations = jsonContent;
+console.log(jsonContent.length);
+module.exports = jsonContent;
 
 
