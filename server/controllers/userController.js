@@ -5,17 +5,22 @@ const saltRounds = 10;
 //Controller Functions
 exports.addUser = (req,res)=>{
   bcrypt.hash(req.body.password, saltRounds,(err,hash)=>{
-    if(err) {
-      console.log(err);
-      return res.redirect('');
+    if(req.body.password==req.body.verifypassword){
+      if(err) {
+        console.log(err);
+        return res.redirect('/register');
+      }
+      User.create({username:req.body.username,password:hash}).then((user)=>{
+        console.log(user);
+        res.redirect('/home');
+      },(err)=>{
+        console.log(err);
+        res.redirect('/register');
+      });
     }
-    User.create({username:req.body.username,password:hash}).then((user)=>{
-      console.log(user);
-      res.redirect('/home');
-    },(err)=>{
-      console.log(err);
-      res.redirect('/');
-    });
+    else{
+      return res.redirect('/register');
+    }
   });
 }
 
