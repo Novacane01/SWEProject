@@ -1,10 +1,10 @@
 {
-  "name": "Assignment4",
+  "name": "TrendiiApp",
   "version": "1.0.0",
-  "description": "Routing server-side requests using ExpressJS",
-  "main": "server.js",
-  "author": "Medhir Bhargava",
-  "license": "MIT",
+  "description": "Twitter Statistics Web Service",
+  "main": "server/app.js",
+  "author": "Will Mbionwu",
+  "license": "UF",
   "dependencies": {
     "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",

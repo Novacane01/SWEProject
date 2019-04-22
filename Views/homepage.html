@@ -25,21 +25,16 @@
       <div class="md-form active-cyan active-cyan-2 mb-3 filterSearch input-group" ng-model = "options">
         <datalist id="searchDrop">
           <option ng-if = "option.placeType.name == type" value="{{option.name}}" ng-repeat="option in options track by $index">{{option.name}}</option>
-          <!-- <option ng-if="" ng-repeat="trend in trending">{{trend.name}}</option> -->
         </datalist>
         <input class="form-control"  id="search" type="text" list="searchDrop" placeholder="{{placeholder}}" aria-label="Search" ng-model="search">
         <div class ="input-group-append">
           <button id="searchButton" class="btn btn-primary input-group-append input-group-text" type="button" ng-click="updateTrends(search,type)">Search</button>
         </div>
       </div>
-        <!-- <input type="radio" name="mode" value=1 checked>recent
-        <input type="radio" name="mode" value=2>popular
-        <input type="radio" name="mode" value=3>mixed -->
       <select class="selectpicker" id="filterPlace" ng-model="type" ng-change="updatePlaceHolder()">
         <option value="Country">Search by Country</option>
         <option value="Town">Search by City</option>
         <option value="Trend">Search by Trend</option>
-        <!-- <option ng-model="placeType" value="trend">search by trend</option> -->
       </select>
     </div>
     <p></p>
@@ -52,8 +47,6 @@
               <th>Trend</th>
               <th>Link</th>
               <th>Volume</th>
-              <!-- <th>Date of Post</th>
-              <th>View Tweet on Twitter</th> -->
             </tr>
           </thead>
           <tbody>
@@ -61,7 +54,6 @@
               <td>{{trend.name}}</td>
               <td><a href={{trend.url}}>{{trend.url}}</a></td>
               <td>{{trend.tweet_volume}}</td>
-              <!-- <td onclick="window.location='{{tweet.entities.urls.url}}'">Click</td> -->
             </tr>
           </tbody>
         </table>

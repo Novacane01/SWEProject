@@ -27,12 +27,12 @@ angular.module('trends').controller('TwitterController',['$scope', 'Trends', '$s
             }
             else{
                 Trends.getTrends(search,type).then((response)=>{
-                    $scope.trending = [];
                     var trends = response.data;
                     if(trends != null && trends != ""){
-                        trends.forEach((element)=> {
-                            $scope.trending.push(element);
+                        trends.sort((a,b)=>{
+                            return b.tweet_volume-a.tweet_volume;
                         });
+                        $scope.trending = trends;
                     }
                 },(err)=>{
                     console.log('Unable to retrieve trends:',err);

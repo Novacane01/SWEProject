@@ -1,4 +1,3 @@
-/* Fill out these functions using Mongoose queries*/
 const Twitter = require('twitter')
 const locations = require('../controllers/locationController');
 const client = new Twitter({
@@ -37,7 +36,6 @@ exports.getTrendsAt = (req,res)=>{
 
   exports.getTrend = (req,res)=>{
     client.get('https://api.twitter.com/1.1/search/tweets.json',{q:'#'+req.query.trend, count:100},(err,body,response)=>{
-      // console.log(JSON.parse(body.body));
       var ret = body.statuses;
       if(ret!=undefined&&ret.length>0){
         return res.status(200).json(ret);

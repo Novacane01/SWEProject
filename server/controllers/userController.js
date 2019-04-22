@@ -4,7 +4,6 @@ const saltRounds = 10;
 
 //Controller Functions
 exports.addUser = (req,res)=>{
-  // console.log('add');
   bcrypt.hash(req.body.password, saltRounds,(err,hash)=>{
     if(err) {
       console.log(err);
