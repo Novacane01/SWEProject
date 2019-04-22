@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="/login.css">
+    <title>Twitter Statistics</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <h1 id="TT"><center>Trendi</center></h1>
+    </div>
+    <div class="container">
+      <div class="login">
+        <form action="/user/login" target="_self" method="POST">
+          <div class="form-group">
+            <label for="username"><b>Username</b></label>
+            <br>
+            <input class="form-control" type="text" id="username" name="username" placeholder="i.e. KingoftheNorth1212" required>
+          </div>
+          <div class="form-group">
+            <label for="pass"><b>Password</b></label>
+            <br>
+            <input class="form-control" type="password" id="pass" name="password" minlength="6" placeholder="Password" required>
+          </div>
+          <div id="login-button" class="text-center">
+            <input class="btn btn-outline-light" type="submit" value="Log In" ></input>
+          </div>
+          <div >
+            <a href="/register" style="color: white">Don't have an account?<br>Register Here</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

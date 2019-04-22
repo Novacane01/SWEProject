@@ -1,0 +1,67 @@
+*{
+  font-family: 'Montserrat', sans-serif;
+}
+.navbar{
+  background-color: rgb(145, 205, 255);
+}
+
+.nav-link{
+  display: inline-block;
+  color: white;
+}
+
+.md-form{
+  width: 85%;
+}
+
+#searchButton{
+  border-color: .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition-property: border-color, box-shadow;
+  transition-duration: 0.15s, 0.15s;
+  transition-timing-function: ease-in-out, ease-in-out;
+  transition-delay: 0s, 0s;
+}
+#search {
+/* width: 50%; */
+margin-left: 25%;
+}
+.TrendSearch{
+  /* background-color: rgb(25, 30, 73); */
+  margin: 25px;
+}
+
+.tableWrapper {
+  max-height: 400px;
+  overflow: auto;
+}
+
+#filterPlace{
+    width: 20%;
+}
+#Title{
+  margin-bottom: 1em;
+}
+
+.btn{
+  margin-right:25px;
+}
+table{
+  margin: 0% auto;
+}
+
+.jumbotron{
+}
+
+.table-hover tbody tr:hover td {
+}
+#searchButton{
+  border-color: .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition-property: border-color, box-shadow;
+  transition-duration: 0.15s, 0.15s;
+  transition-timing-function: ease-in-out, ease-in-out;
+  transition-delay: 0s, 0s;
+}
+#search {
+/* width: 50%; */
+margin-left: 25%;
+}

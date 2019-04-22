@@ -1,0 +1,85 @@
+*{
+  font-family: 'Montserrat', sans-serif;
+}
+html,body{
+  height: 100%;
+}
+body {
+  background-image: url("/twitter-back.png");
+  /* background-repeat: repeat-x; */
+  background-position-y: center; 
+  overflow: hidden;
+}
+.container{
+  padding: 0 auto;
+  background-color:rgba(51, 186, 196, 0.6);
+  height: 100%;
+  min-width: 300px;
+  max-width: 40%;
+}
+
+.btn-outline-primary{
+  background-color: rgba(32, 49, 68, 0.8);
+}
+.btn-outline-light{
+  margin-top: 15%;
+  background-color: rgb(0, 63, 179);
+}
+
+.login{
+  margin: 0 auto;
+  padding-top: 20%;
+  width: 55%;
+}
+
+#login-button{
+  padding-bottom: 5%;
+}
+
+#TT{
+  color: white;
+  font-size: 8vh;
+}
+
+.container-fluid{
+  margin-left: 0%;
+  background-color: rgba(0,0,0,.8);
+  height: 10%;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+#register{
+  margin: 0;
+}
+
+/* Style the submit button */
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
