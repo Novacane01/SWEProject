@@ -3,7 +3,8 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
   <link rel="stylesheet" href="/stats.css">
 </head>
 
@@ -11,42 +12,41 @@
   <nav class="navbar navbar-expand-lg">
     <img class="navbar-brand" src="/trendi.png" style="width:180px;height:70px;"></img>
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-          <a class="nav-link" href="/home"> Home</a>
-      </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/home"> Home </a>
+          <a class="nav-link" href="/stats"> Statistics </a>
+        </li>
     </ul>
     <!-- <h1>Whats Trending?</h1>
     <h1>Statistics</h1> -->
     </nav>
-  <div class="TrendSearch" ng-model="trending">
-  <h1 id="Title">Trending</h1>
-      <div class="md-form active-cyan active-cyan-2 mb-3">
-          <input class="form-control"  id="search" type="text" placeholder="Search by Location" aria-label="Search" ng-model="location">
+    <div class="TrendSearch text-center" ng-model="trending">
+      <h1 id="Title">What's Trending?</h1>
+      <div class="md-form active-cyan active-cyan-2 mb-3 filterSearch input-group" ng-model = "options">
+        <datalist id="searchDrop">
+          <option ng-if = "option.placeType.name == type" value="{{option.name}}" ng-repeat="option in options track by $index">{{option.name}}</option>
+        </datalist>
+        <input class="form-control"  id="search" type="text" list="searchDrop" placeholder="{{placeholder}}" aria-label="Search" ng-model="search">
+        <div class ="input-group-append">
+          <button id="searchButton" class="btn btn-primary input-group-append input-group-text" type="button" ng-click="updateTrends(search,type)">Search</button>
         </div>
-        <button class="btn btn-primary" type="button" ng-click="updateTrends(location,placeType)">Search</button>
-      <!-- <input type="radio" name="mode" value=1 checked>recent
-      <input type="radio" name="mode" value=2>popular
-      <input type="radio" name="mode" value=3>mixed -->
-    <select class="form-control-sm" id="filterPlace" ng-model="placeType">
-      <option value="Country">Search by Country</option>
-      <option value="Town">Search by City</option>
-      <!-- <option ng-model="placeType" value="trend">search by trend</option> -->
-    </select>
+      </div>
+      <select class="selectpicker" id="filterPlace" ng-model="type" ng-change="updatePlaceHolder()">
+        <option value="Country">Search by Country</option>
+        <option value="Town">Search by City</option>
+      </select>
     </div>
   <p></p>
-    <ul class="bar-graph">
-        <div ng-if="trend.tweet_volume" ng-repeat="trend in trending | orderBy: 'trend.tweet_volume'"  >
-          <li class="bar alert" style="height: 'trend.tweet_volume'" title="x">
-            <div class="percent">{{trend.tweet_volume}}<span> tweets</span></div>
-            <div class="description">{{trend.name}}</div>
-          </li>
-        </div>
-    </ul>
+  <canvas id="myChart"></canvas>
 </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="/app.js"></script>
 <script src="/trendingFactory.js"></script>
 <script src="/twitterController.js"></script>
-
 </html>
