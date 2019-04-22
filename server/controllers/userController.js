@@ -48,6 +48,9 @@ exports.authUser = (req,res)=>{
         if(good){
           return res.redirect('/home');
         }
+        else{
+          return res.redirect('/');    
+        }
       });
     }
     else{

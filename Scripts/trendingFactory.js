@@ -1,12 +1,13 @@
 angular.module('trends').factory('Trends', function($http) {
     var methods = {
         getTrends:(location,placeType)=>{
-            var i = $http.get(`http://localhost:8080/twitter/trendingAt?name=${location}&placeType=${placeType}`);
-            console.log(i);
-            return i;
+            return $http.get(`http://localhost:8080/twitter/trendingAt?name=${location}&placeType=${placeType}`);
         },
         getLocations:()=>{
             return $http.get('http://localhost:8080/locations');
+        },
+        getTweets:(trend)=>{
+            return $http.get(`http://localhost:8080/twitter/trendingTweets?trend=${trend}`);
         }
     }
     return methods;
