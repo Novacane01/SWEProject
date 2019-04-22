@@ -8,33 +8,33 @@
   </head>
   <body>
     <div class="container-fluid">
-      <h1 id="TT"><center>Trendi</center></h1>
+      <h1 id="TT" class="text-center">Trendi</h1>
     </div>
     <div class="container">
       <div class="register">
         <form action="/user/login" target="_self" method="POST">
           <div class="form-group">
-            <label for="fName">First Name</label>
+            <label for="fName"><b>First Name</b></label>
             <br>
             <input class="form-control" type="text" id="fName" name="fName" placeholder="i.e. Jon" required>
           </div>
           <div class="form-group">
-            <label for="lName">Last Name</label>
+            <label for="lName"><b>Last Name</b></label>
             <br>
             <input class="form-control" type="text" id="lName" name="lName" placeholder="i.e. Snow" required>
           </div>
           <div class="form-group">
-            <label for="username">Username</label>
+            <label for="username"><b>Username</b></label>
             <br>
             <input class="form-control" type="text" id="username" name="username" placeholder="i.e. KingoftheNorth1212" required>
           </div>
           <div class="form-group">
-            <label for="pass">Password</label>
+            <label for="pass"><b>Password</b></label>
             <br>
             <input class="form-control" type="password" id="pass" name="password" minlength="6" placeholder="(6 characters minimum)" required>
           </div>
           <div class="form-group">
-            <label for="pass">Verify Password</label>
+            <label for="pass"><b>Verify Password</b></label>
             <br>
             <input class="form-control" type="password" id="pass" name="password" minlength="6" placeholder="(6 characters minimum)" required>
           </div>
@@ -44,11 +44,5 @@
         </form>
       </div>
     </div>
-    <!--
-    <div class="center"><h3>Log in via twitter </h3>
-      <button class="button" onclick="authenticate_user(function callback(res){return res})"><img src="resources/TwitterPic.png" style="width: auto; height: 25px"></button>
-      <script src="../server/test.js"></script>
-    </div>
-  -->
   </body>
 </html>

@@ -10,7 +10,11 @@
   display: inline-block;
   color: white;
 }
-
+th{
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
 body{
   overflow-x: hidden;
 }
@@ -27,8 +31,8 @@ margin-left: 25%;
 }
 .modal-header{
   background-color: rgb(145, 205, 255);
-
 }
+.element { overflow: -moz-scrollbars-none; }
 .tableWrapper {
   max-height: 400px;
   overflow-y: scroll;
@@ -81,4 +85,26 @@ th{
 
 .form-control:focus{
   box-shadow: 0 0 0 .05rem rgba(0,123,255,.25);
+}
+@media only screen and (max-width:770px){
+  .tableWrapper {
+    max-height: 400px;
+    overflow-y: scroll;
+    margin-left: 0%;
+    margin-right: -25%;
+    width: 105%;
+  }
+}
+.col-md-6{
+  padding-left: 2%;
+  padding-right: 5%;
+}
+@media only screen and (max-width:350px){
+  .tableWrapper {
+    max-height: 400px;
+    overflow-y: scroll;
+    margin-left: 0;
+    margin-right: -25%;
+    width: 106%;
+  }
 }
