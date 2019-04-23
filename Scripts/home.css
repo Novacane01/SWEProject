@@ -11,6 +11,7 @@
   color: white;
 }
 th{
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   background-color: white;
@@ -97,6 +98,17 @@ th{
     margin-left: 0%;
     margin-right: -25%;
     width: 105%;
+  }
+  .modal-content{
+    width: auto;
+    margin: auto;
+    overflow-x: scroll;
+  }
+  .modal-header{
+    width: inherit;
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
   }
 }
 .col-md-6{

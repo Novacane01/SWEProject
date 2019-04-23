@@ -53,7 +53,7 @@
           <tbody>
             <tr id="trendRow" ng-if="trend.tweet_volume" ng-repeat="trend in trending" ng-click="updateTweets(trend.name)" data-toggle="modal" data-target="#tweetModal">
               <td>{{trend.name}}</td>
-              <td><a href={{trend.url}}>{{trend.url}}</a></td>
+              <td><a target="_blank" href={{trend.url}}>{{trend.url}}</a></td>
               <td>{{trend.tweet_volume}}</td>
             </tr>
           </tbody>
@@ -64,7 +64,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">#{{currentTrend}}</h5>
+              <h5 class="modal-title" id="tweetModalTitle">#{{currentTrend}}</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
