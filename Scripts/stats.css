@@ -10,6 +10,18 @@
   color: white;
 }
 
+.nav-tabs .nav-item .nav-link{
+  color: black;
+  margin-bottom: 0.1em;
+}
+.nav-tabs .active .nav-link{
+  color: rgb(51, 153, 236);
+}
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+  border-radius: 25px;
+  outline: none;
+}
+
 .md-form{
   width: 85%;
 }
@@ -45,15 +57,14 @@ margin-left: 25%;
 .btn{
   margin-right:25px;
 }
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
 table{
   margin: 0% auto;
 }
 
-.jumbotron{
-}
-
-.table-hover tbody tr:hover td {
-}
 #searchButton{
   border-color: .15s ease-in-out,box-shadow .15s ease-in-out;
   transition-property: border-color, box-shadow;
@@ -64,4 +75,31 @@ table{
 #search {
 /* width: 50%; */
 margin-left: 25%;
+}
+.tabcontent{
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+}
+
+.fdout{
+  transition: opacity 2s linear, transform 2s ease-in;
+  opacity: 0;
+  transform: translate(0,30%);
+}
+
+.fdin{
+  transition: opacity 2s linear, transform 2s ease-out;
+  opacity: 1;
+  transform: translate(0);
+}
+
+#chartTitle{
+text-align: center;
+padding: 0;
+margin-bottom: -1.25em;
+margin-top: 1.5em;
+}
+.form-control:focus{
+  box-shadow: 0 0 0 .05rem rgba(0,123,255,.25);
 }

@@ -56,6 +56,10 @@ margin-left: 25%;
 .btn{
   margin-right:25px;
 }
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
 table{
   margin: 0% auto;
 }

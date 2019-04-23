@@ -1,12 +1,13 @@
 angular.module('trends').controller('TwitterController',['$scope', 'Trends', '$sce',
     function($scope,Trends,$sce){
-        $scope.searchName = null;
+        $scope.currentLocation = 'United States';
         $scope.type = 'Country';
         $scope.currentTrend = null;
         $scope.placeholders = ['Search by Country i.e. Canada','Search by City i.e. Tokyo','Search by trend i.e. GameOfThrones'];
         $scope.updatePlaceHolder = ()=>{
             $scope.placeholder = ($scope.type=='Country')?$scope.placeholders[0]:($scope.type=='Town')?$scope.placeholders[1]:($scope.type=='Trend')?$scope.placeholders[2]:null;
         }
+        $scope.charts = [];
         $scope.updateOptions = ()=>{
             Trends.getLocations().then((response)=>{
                 console.log(response);
@@ -33,7 +34,13 @@ angular.module('trends').controller('TwitterController',['$scope', 'Trends', '$s
                             return b.tweet_volume-a.tweet_volume;
                         });
                         $scope.trending = trends;
-                        $scope.updateGraph();
+                        $scope.options.forEach((element)=>{
+                            if(element.name.toLowerCase()==search.toLowerCase()){
+                                $scope.currentLocation = element.name;
+                            }
+                        });
+                        console.log('Creating Graphs');
+                        $scope.createGraphs();
                     }
                 },(err)=>{
                     console.log('Unable to retrieve trends:',err);
@@ -66,48 +73,83 @@ angular.module('trends').controller('TwitterController',['$scope', 'Trends', '$s
                 console.log(err);
             });
         }
-        $scope.updateGraph = ()=>{
+        $scope.createGraphs = ()=>{
+            console.log("Aw shit here we go again");
+            if($scope.charts.length>0){
+                for(i = 0;i<$scope.charts.length;i++){
+                    $scope.charts[i].destroy();
+                }
+            }
+            $scope.charts = [];
+            const charts = ['line','bar','polarArea'];
             var trendNames = [];
             var trendData = [];
+            var counter = 0;
             $scope.trending.forEach((element)=>{
                 if(element.tweet_volume>0){
                     trendNames.push(element.name);
                     trendData.push(element.tweet_volume);
                 }
             });
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var chart = new Chart(ctx, {
-              // The type of chart we want to create
-              type: 'line',
-              // The data for our dataset
-              data: {
-                  labels: trendNames,
-                  datasets: [{
-                      label: 'Tweet Volume',
-                      backgroundColor: 'rgba(145, 205, 255,.5)',
-                      borderColor: 'rgb(145, 205, 255)',
-                      data: trendData
-                  }]
-              },
-          
-              // Configuration options go here
-              options: {
-                layout: {
-                    padding: {
-                        left: 50,
-                        right: 50,
-                        top: 0,
-                        bottom: 0
-                        }
-                    },
-                    scales: {
-                        yAxes: [{ticks: {fontSize: 12, fontFamily: "'Montserrat', sans-serif", fontColor: '#000', fontStyle: '500'}}],
-                        xAxes: [{ticks: {fontSize: 12, fontFamily: "'Montserrat', sans-serif", fontColor: '#000', fontStyle: '500'}}]
-                    }
-                }
+            var colours = [];
+            trendNames.forEach(()=>{
+                colours.push(`rgba(${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},.5)`);
             });
+            console.log(colours);
+            for(i = 0;i<charts.length;i++){
+                var ctx = document.getElementById(charts[i]+'Chart').getContext('2d');
+                $scope.charts.push(new Chart(ctx, {
+                  // The type of chart we want to create
+                  type: charts[i],
+                  // The data for our dataset
+                  data: {
+                      labels: trendNames,
+                      datasets: [{
+                          label: 'Tweet Volume',
+                          backgroundColor: (charts[i]=='polarArea'||charts[i]=='bar')?colours:'rgba(145, 205, 255,.5)',
+                          borderColor: 'white',
+                          data: trendData
+                      }]
+                  },
+              
+                  // Configuration options go here
+                  options: {
+                    layout: {
+                        padding: {
+                            left: 50,
+                            right: 50,
+                            top: 0,
+                            bottom: 0
+                            }
+                        },
+                        scales: {
+                            yAxes: [{ticks: {fontSize: 12, fontFamily: "'Montserrat', sans-serif", fontColor: '#000', fontStyle: '500'}}],
+                            xAxes: [{ticks: {fontSize: 12, fontFamily: "'Montserrat', sans-serif", fontColor: '#000', fontStyle: '500'}}]
+                        }
+                    }
+                }));
+            }
         }
-        $scope.updateTrends("United States",$scope.type);
+
+        $scope.changeGraph = (type)=>{
+            var tabContent = document.getElementsByClassName('tabcontent');
+            var tabLinks = document.getElementsByClassName('nav-item');
+            for(i=0;i<tabContent.length;i++){
+                console.log(tabContent[i]);
+                if(tabContent[i].lastElementChild.id!==type+'Chart'){
+                    tabContent[i].className = tabContent[i].className.replace(' fdin',' fdout');
+                }
+                else{
+                    tabContent[i].className = tabContent[i].className.replace(' fdout',' fdin');
+                }
+            }
+            for(i=0;i<tabLinks.length;i++){
+                tabLinks[i].className = tabLinks[i].className.replace(' active','');
+            }
+            document.getElementById(type).className += ' active';
+            
+        }
+        $scope.updateTrends($scope.currentLocation,$scope.type);
         $scope.updatePlaceHolder();
         $scope.updateOptions();
         // console.log($scope.trends);
