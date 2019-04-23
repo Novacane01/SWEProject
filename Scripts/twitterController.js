@@ -119,7 +119,7 @@ angular.module('trends').controller('TwitterController',['$scope', 'Trends', '$s
                             left: 50,
                             right: 50,
                             top: 0,
-                            bottom: 0
+                            bottom: 100
                             }
                         },
                         scales: {
