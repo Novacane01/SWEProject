@@ -8,10 +8,10 @@
   "dependencies": {
     "alert-node": "^1.2.3",
     "bcrypt": "^3.0.6",
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.1",
     "chart.js": "^2.8.0",
     "crypto": "^1.0.1",
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "mongodb": "^3.2.2",
     "mongoose": "^4.13.18",
     "morgan": "^1.9.1",
@@ -20,6 +20,6 @@
   },
   "devDependencies": {
     "should": "^7.1.1",
-    "supertest": "^1.2.0"
+    "supertest": "^6.3.2"
   }
 }
